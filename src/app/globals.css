@@ -135,21 +135,28 @@ img {
 }
 
 .mobileNavShell {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.24s ease;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
 }
 
 .mobileNavShellOpen {
-  max-height: 360px;
-  border-top: 1px solid var(--border);
-  background: rgba(243, 249, 255, 0.96);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .mobileNavPanel {
   display: grid;
   gap: 8px;
-  padding: 12px 0 16px;
+  padding: 0 0 8px;
 }
 
 .mobileNavLink {
@@ -1097,6 +1104,16 @@ img {
   .navToggle {
     display: inline-flex;
   }
+
+  .mobileNavPanel {
+    width: min(1160px, calc(100% - 20px));
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .mobileNavLink {
+    box-shadow: 0 14px 26px rgba(18, 52, 79, 0.08);
+  }
 }
 
 @media (max-width: 980px) {
@@ -1188,7 +1205,7 @@ img {
   }
 
   .main {
-    padding: 18px 0 42px;
+    padding: 14px 0 42px;
   }
 
   .hero,
