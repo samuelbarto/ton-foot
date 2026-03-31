@@ -75,6 +75,10 @@ img {
   padding: 14px 0;
 }
 
+.navInnerSimple {
+  gap: 16px;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -182,6 +186,12 @@ img {
 .link:hover {
   background: var(--panel-soft);
   color: var(--text);
+}
+
+.navPrimaryCta {
+  min-width: 152px;
+  padding-inline: 18px;
+  flex-shrink: 0;
 }
 
 .main {
@@ -514,6 +524,33 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.waitlistIntroShell {
+  min-height: auto;
+  padding-top: 18px;
+}
+
+.waitlistIntroCard {
+  max-width: 760px;
+  gap: 0;
+  padding: 32px 28px;
+}
+
+.waitlistIntroBadges {
+  justify-content: center;
+}
+
+.waitlistPanel {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 22px;
+  border-radius: 22px;
+}
+
+.waitlistPanelTitle {
+  font-size: clamp(24px, 4vw, 32px);
+  margin-bottom: 8px;
 }
 
 .heroPanel {
@@ -1151,6 +1188,11 @@ img {
     min-height: calc(100vh - 210px);
   }
 
+  .waitlistIntroShell {
+    min-height: auto;
+    padding-top: 4px;
+  }
+
   .introMinimal {
     padding: 18px;
     border-radius: 22px;
@@ -1208,6 +1250,15 @@ img {
     padding: 14px 0 42px;
   }
 
+  .navInnerSimple {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .navPrimaryCta {
+    width: 100%;
+  }
+
   .hero,
   .card,
   .heroLarge,
@@ -1236,6 +1287,10 @@ img {
     padding: 22px 16px;
   }
 
+  .waitlistIntroCard {
+    padding: 24px 16px;
+  }
+
   .introLogo {
     width: min(320px, 100%);
   }
@@ -1246,6 +1301,10 @@ img {
 
   .introSubtitle {
     font-size: 15px;
+  }
+
+  .waitlistPanel {
+    padding: 16px;
   }
 
   .actions {

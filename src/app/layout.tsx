@@ -4,8 +4,36 @@ import SiteHeader from "@/components/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ton-foot.vercel.app"),
   title: "TON FOOT",
   description: "Plateforme de coaching football pour enfants",
+  applicationName: "TON FOOT",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://ton-foot.vercel.app",
+    title: "TON FOOT",
+    description: "Plateforme de coaching football pour enfants",
+    siteName: "TON FOOT",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "TON FOOT - Le terrain du plaisir, de la liberte et de la progression.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TON FOOT",
+    description: "Plateforme de coaching football pour enfants",
+    images: ["/opengraph-image"],
+  },
 };
 
 export const viewport: Viewport = {

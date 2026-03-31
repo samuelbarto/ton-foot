@@ -1,28 +1,20 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const navItems = [
-  { href: "/accueil", label: "Accueil" },
-  { href: "/comment-ca-marche", label: "Comment ca marche" },
-  { href: "/waitlist", label: "Waitlist" },
-  { href: "/coaches", label: "Coachs" },
-  { href: "/conseiller-ia", label: "Conseiller IA" },
-];
+import { usePathname } from "next/navigation";
 
 export default function SiteHeader() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isIntroPage = pathname === "/";
 
   return (
     <header className="nav">
-      <div className="container navInner">
+      <div className="container navInner navInnerSimple">
         <Link
           aria-label="Retour a l accueil"
           className="brand"
-          href="/"
-          onClick={() => setIsMenuOpen(false)}
+          href={isIntroPage ? "/" : "/accueil"}
         >
           <Image
             alt="TON FOOT"
@@ -35,45 +27,11 @@ export default function SiteHeader() {
           <span className="badge">beta</span>
         </Link>
 
-        <button
-          aria-controls="mobile-navigation"
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          className="navToggle"
-          type="button"
-          onClick={() => setIsMenuOpen((current) => !current)}
-        >
-          <span className="navToggleBar" />
-          <span className="navToggleBar" />
-          <span className="navToggleBar" />
-        </button>
-
-        <nav aria-label="Navigation principale" className="navLinks navLinksDesktop">
-          {navItems.map((item) => (
-            <Link className="link" href={item.href} key={item.href} onClick={() => setIsMenuOpen(false)}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      <div className={`mobileNavShell${isMenuOpen ? " mobileNavShellOpen" : ""}`}>
-        <nav
-          aria-label="Navigation mobile"
-          className="container mobileNavPanel"
-          id="mobile-navigation"
-        >
-          {navItems.map((item) => (
-            <Link
-              className="mobileNavLink"
-              href={item.href}
-              key={item.href}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {isIntroPage ? null : (
+          <Link className="btn btnPrimary navPrimaryCta" href="/accueil#waitlist-form">
+            Rejoindre la waitlist
+          </Link>
+        )}
       </div>
     </header>
   );
